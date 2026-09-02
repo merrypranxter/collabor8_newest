@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collabor8 AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            'brand-bg': '#090a0b',
+            'brand-bg-start': '#121316',
+            'brand-surface': '#1b1d22',
+            'brand-border': '#343841',
+            'brand-primary': '#a8b0c0', // Silver
+            'brand-primary-hover': '#e0e4eb', // Bright Chrome
+            'brand-secondary': '#6f7682', // Gunmetal
+            'brand-text-light': '#f3f4f6',
+            'brand-text-dark': '#8b93a0',
+          },
+          backgroundImage: {
+            'chrome-gradient': 'linear-gradient(135deg, #2a2d34 0%, #17181c 50%, #090a0b 100%)',
+            'silver-gradient': 'linear-gradient(135deg, #e0e4eb 0%, #a8b0c0 50%, #6f7682 100%)',
+          },
+          boxShadow: {
+            'glow': '0 0 20px -2px rgba(168, 176, 192, 0.15)',
+            'card-glow': '0 10px 30px -10px rgba(0, 0, 0, 0.8)',
+          }
+        }
+      }
+    }
+    </script>
+    <style>
+      body {
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          background-color: #090a0b;
+          color: #f3f4f6;
+      }
+      /* Custom scrollbar for a more modern look */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #090a0b;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #343841 0%, #1b1d22 100%);
+        border-radius: 10px;
+        border: 1px solid #343841;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #a8b0c0;
+      }
+    </style>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-brand-bg">
+    <div id="root"></div>
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://aistudiocdn.com/react@^19.1.1",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+        "react/": "https://aistudiocdn.com/react@^19.1.1/",
+        "@google/genai": "https://aistudiocdn.com/@google/genai@^1.19.0",
+        "jspdf": "https://aistudiocdn.com/jspdf@^2.5.1"
+      }
+    }
+    </script>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>

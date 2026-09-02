@@ -1,0 +1,6 @@
+{
+  "name": "Remix: Collabor8 AI",
+  "description": "The Multi-Persona AI Conversation Engine. Define unique AI characters and have them collaborate, debate, or brainstorm on any topic in various dynamic modes.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": []
+}
