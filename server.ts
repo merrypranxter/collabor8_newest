@@ -27,22 +27,8 @@ async function startServer() {
   }
   const upload = multer({ dest: uploadDir });
 
-  // Read .env as a priority for development if the platform's env is stale
-  let apiKey = process.env.GEMINI_API_KEY;
-  try {
-    if (fs.existsSync('.env')) {
-      const envLocal = fs.readFileSync('.env', 'utf8');
-      const match = envLocal.match(/GEMINI_API_KEY=(.*)/);
-      if (match && match[1]) {
-        apiKey = match[1].trim();
-      }
-    }
-  } catch (e) {
-    console.error("Failed to read .env", e);
-  }
-
   // Initialize Gemini
-  const ai = new GoogleGenAI({ apiKey });
+  const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
   // Upload file to Gemini route
   app.post('/api/upload', upload.single('file'), async (req, res) => {
@@ -215,7 +201,7 @@ Your output should ONLY be the message content, without any preamble, title, or 
   app.post('/api/generate-persona', async (req, res) => {
     try {
         const { prompt } = req.body;
-        console.log("ROUTE KEY:", process.env.GEMINI_API_KEY ? process.env.GEMINI_API_KEY.substring(0, 5) : "UNDEFINED"); const generationPrompt = `
+        const generationPrompt = `
         Based on the user's request, create a detailed PersonaCard object in JSON format.
         The user wants a persona described as: "${prompt}".
 
